@@ -32,26 +32,34 @@ const cardData = [
         id:0,
         name:"Blue-Eyes White Dragon",
         type:"Paper",
-        img: `${pathImages}dragon.png`,
-        WinOf:[1],
-        LoseOf:[2],
+        img: `${pathImages}whiteDragon.png`,
+        WinOf:[],
+        LoseOf:[2, 3],
     
     },
     {
         id:1,
-        name:"Dark Magician",
+        name:"Palladium Oracle Mahad",
         type:"Rock",
-        img: `${pathImages}magician.png`,
-        WinOf:[2],
+        img: `${pathImages}paladdium.png`,
+        WinOf:[2, 3],
         LoseOf:[0],
         
     },
     {
         id:2,
-        name:"Exodia",
+        name:"Slifer the Sky Dragon",
         type:"Scissors",
-        img: `${pathImages}exodia.png`,
+        img: `${pathImages}slifer.png`,
         WinOf:[0],
+        LoseOf:[1,3],
+    },
+    {
+        id:3,
+        name:"Magician of Black Chaos",
+        type:"Water",
+        img: `${pathImages}magician.png`,
+        WinOf:[0, 2],
         LoseOf:[1],
     }
 ]
