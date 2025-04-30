@@ -50,7 +50,7 @@ const cardData = [
         id:2,
         name:"Slifer the Sky Dragon",
         type:"Scissors",
-        img: `${pathImages}slifer.png`,
+        img: `${pathImages}slifer.jpeg`,
         WinOf:[0],
         LoseOf:[1,3],
     },
