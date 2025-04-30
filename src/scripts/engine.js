@@ -156,7 +156,7 @@ async function checkDuelResults(playerCardId, computerCardId) {
     }
 
     // Verifica se algum jogador atingiu 11 pontos
-    if (state.score.playerScore >= 11 || state.score.computerScore >= 11) {
+    if (state.score.playerScore >= 10 || state.score.computerScore >= 10) {
         state.actions.button.disabled = true;
         alert("🏁 Fim de jogo! " + 
               (state.score.playerScore >= 11 ? "Você venceu!" : "O computador venceu!"));
