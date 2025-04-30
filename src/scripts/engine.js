@@ -141,23 +141,28 @@ async function drawButton(texto) {
     state.actions.button.style.display = "block";
 }
 
-async function checkDuelResults(playercardId, computerCardId) {
-    let duelResults = "draw";
-    let playerCard = cardData[playercardId];
+async function checkDuelResults(playerCardId, computerCardId) {
+    let duelResult = "draw";
+    const playerCard = cardData[playerCardId];
 
-    if(playerCard.WinOf.includes(computerCardId)){
-        duelResults = "win";
-        await playAudio(duelResults);
+    if (playerCard.WinOf.includes(computerCardId)) {
+        duelResult = "win";
         state.score.playerScore++;
-    }
-
-    if(playerCard.LoseOf.includes(computerCardId)){
-        duelResults = "lose";
-        await playAudio(duelResults);
+        await playAudio(duelResult);
+    } else if (playerCard.LoseOf.includes(computerCardId)) {
+        duelResult = "lose";
         state.score.computerScore++;
+        await playAudio(duelResult);
     }
-    return duelResults;
 
+    // Verifica se algum jogador atingiu 11 pontos
+    if (state.score.playerScore >= 11 || state.score.computerScore >= 11) {
+        state.actions.button.disabled = true;
+        alert("🏁 Fim de jogo! " + 
+              (state.score.playerScore >= 11 ? "Você venceu!" : "O computador venceu!"));
+    }
+
+    return duelResult;
 }
 
 async function removeAllCardsImages(){
